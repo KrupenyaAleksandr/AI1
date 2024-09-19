@@ -20,10 +20,10 @@ public class Painter {
                 else if (field[row][col] == 2) {
                     System.out.print(BLACK_KING);
                 }
-                else if (field[row][col] == -1) {
+                else if (field[row][col] == 3) {
                     System.out.print(FIRE);
                 }
-                else if (field[row][col] == -2) {
+                else if (field[row][col] == 4) {
                     System.out.print(ALREADY_VISITED);
                 }
                 else {
