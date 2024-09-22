@@ -6,7 +6,6 @@ public class Painter {
     private final String BLACK_KING = "K "; // 2
     private final String FIRE = "F "; // 3
     private final String ALREADY_VISITED = "V "; // 4
-    private final String START = "S "; // 5
     private final String WHITE_CELL = "□ ";
     private final String BLACK_CELL = "■ ";
     private final int SIZE = 8;

@@ -25,14 +25,14 @@ public class State {
 
     public void makeInitialState() {
         field = new int[][] {
+                { 0, 0, 0, 0, 3, 0, 3, 0},
+                { 0, 3, 0, 3, 0, 3, 0, 3},
+                { 3, 0, 0, 3, 3, 0, 3, 0},
+                { 3, 0, 0, 0, 3, 3, 3, 3},
+                { 3, 3, 0, 3, 2, 3, 0, 0},
                 { 0, 0, 0, 0, 0, 0, 0, 0},
-                { 0, 0, 0, 0, 0, 0, 0, 0},
-                { 0, 0, 0, 0, 0, 0, 0, 0},
-                { 0, 0, 0, 0, 0, 0, 0, 0},
-                { 0, 0, 0, 0, 0, 0, 0, 0},
-                { 0, 2, 0, 0, 0, 0, 0, 0},
-                { 3, 0, 0, 0, 0, 3, 0, 0},
-                { 0, 0, 1, 0, 0, 0, 0, 0},
+                { 3, 3, 0, 3, 0, 3, 0, 0},
+                { 3, 0, 1, 0, 3, 3, 0, 3},
         };
         knightRow = 7;
         knightCol = 2;
@@ -40,24 +40,24 @@ public class State {
 
     public void makeTargetState() {
         field = new int[][] {
-                { 0, 0, 0, 0, 0, 0, 0, 0},
-                { 0, 0, 0, 0, 0, 0, 0, 0},
-                { 0, 0, 0, 0, 0, 0, 0, 0},
-                { 0, 0, 0, 0, 0, 0, 0, 0},
-                { 0, 0, 0, 0, 0, 0, 0, 0},
-                { 0, 1, 0, 0, 0, 0, 0, 0},
-                { 3, 0, 0, 0, 0, 0, 0, 0},
-                { 0, 0, 4, 0, 0, 0, 0, 0},
+                { 0, 0, 0, 0, 3, 0, 3, 0},
+                { 0, 3, 0, 3, 0, 3, 0, 3},
+                { 3, 0, 0, 3, 3, 0, 3, 0},
+                { 3, 0, 4, 0, 3, 3, 3, 3},
+                { 3, 3, 0, 3, 4, 3, 0, 0},
+                { 0, 4, 0, 0, 0, 0, 4, 0},
+                { 3, 3, 0, 3, 4, 3, 0, 0},
+                { 3, 0, 1, 0, 3, 3, 0, 3},
         };
     }
-
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass())
+            return false;
         State state = (State) o;
-        return Arrays.deepEquals(field, state.field); // check deepEquals
+        return Arrays.deepEquals(field, state.field);
     }
 
     @Override
