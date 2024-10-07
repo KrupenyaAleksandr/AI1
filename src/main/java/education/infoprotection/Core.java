@@ -4,17 +4,13 @@ import java.util.*;
 
 public class Core {
 
-    private Painter painter;
+    private final Painter painter = new Painter();
     Stack<State> O = new Stack<>(); // general list
     Set<State> C = new HashSet<>(); // visited list
     LinkedList<State> path;
     long iterations = 0, maxOpen = 0, maxStorage = 0;
     boolean solved = false;
     List<Integer> threats = Arrays.asList(3, 4);
-
-    public Core() {
-        painter = new Painter();
-    }
 
     public void Start() {
         State startState = new State();
@@ -52,9 +48,10 @@ public class Core {
         }
         if (solved) {
             System.out.println("Решение найдено");
-            System.out.println("Iterations: " + iterations);
-            System.out.println("Max length O: " + maxOpen);
-            System.out.println("Max length O + C: " + maxStorage + "\n");
+            System.out.println("Итерации: " + iterations);
+            System.out.println("Максимальная длина O: " + maxOpen);
+            maxStorage = O.size() + C.size();
+            System.out.println("Максимальная длина O + C: " + maxStorage + "\n");
             path = new LinkedList<>();
             while (!firstState.equals(startState)) {
                 path.addFirst(firstState);
@@ -77,7 +74,6 @@ public class Core {
 
         iterations++;
         maxOpen = Math.max(O.size(), maxOpen);
-        maxStorage = Math.max(O.size() + C.size(), maxStorage);
         listChildren.clear();
     }
 
